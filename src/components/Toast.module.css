@@ -1,0 +1,13 @@
+.toast {
+  position: fixed; bottom: 36px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  background: linear-gradient(135deg, #251508, #160D05);
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,150,58,0.12);
+  padding: 13px 26px; border-radius: 2px;
+  font-family: var(--font-body); font-size: 14px; color: var(--cream);
+  white-space: nowrap;
+  animation: toastIn 0.4s cubic-bezier(.16,1,.3,1) both;
+}
+.icon { color: var(--gold); margin-right: 8px; }

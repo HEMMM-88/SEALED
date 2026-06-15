@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400;1,600&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Special+Elite&display=swap');
+
+:root {
+  /* Deep midnight-ink base */
+  --bg:           #0D0F14;
+  --bg-2:         #111318;
+  --bg-3:         #161820;
+  --surface:      #1A1D26;
+  --surface-2:    #20232E;
+  --border:       rgba(255,255,255,0.07);
+  --border-gold:  rgba(196,160,90,0.22);
+
+  /* Warm ivory text */
+  --cream:        #F0EAD6;
+  --cream-2:      #D8CEBC;
+  --muted:        #7A7468;
+  --muted-2:      #5A5550;
+
+  /* Signature gold */
+  --gold:         #C4A05A;
+  --gold-light:   #DDB96A;
+  --gold-pale:    #EDD090;
+  --gold-dim:     rgba(196,160,90,0.15);
+
+  /* Accent */
+  --wax:          #8B2E2E;
+  --wax-light:    #B03A3A;
+  --sage:         #4A6058;
+
+  --ink:          #0D0F14;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Crimson Pro', Georgia, serif;
+  --font-mono:    'Special Elite', monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body, #root {
+  width: 100%; height: 100%;
+  background: var(--bg);
+  font-family: var(--font-body);
+  color: var(--cream);
+  overflow: hidden;
+}
+
+::selection { background: rgba(196,160,90,0.25); color: var(--cream); }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-gold); border-radius: 2px; }
+
+/* ── Keyframes ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulseGold {
+  0%, 100% { opacity: 0.45; }
+  50%       { opacity: 1; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(12px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+@keyframes unrollScroll {
+  from { transform: scaleY(0); opacity: 0; }
+  to   { transform: scaleY(1); opacity: 1; }
+}
+@keyframes envelopeReveal {
+  0%   { transform: translateY(60px) scale(0.88); opacity: 0; }
+  65%  { transform: translateY(-6px) scale(1.01); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+@keyframes openFlap {
+  from { transform: rotateX(0deg); }
+  to   { transform: rotateX(-165deg); }
+}
+@keyframes riseFromEnvelope {
+  0%   { transform: translateY(50px); clip-path: inset(50px 0 0 0); }
+  100% { transform: translateY(-30px); clip-path: inset(0 0 0 0); }
+}
+@keyframes flipIn {
+  from { transform: rotateY(-80deg) translateX(-30px); opacity: 0; }
+  to   { transform: rotateY(0deg) translateX(0); opacity: 1; }
+}
+@keyframes particleFloat {
+  0%   { opacity: 0.8; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-100px) scale(0.1); }
+}

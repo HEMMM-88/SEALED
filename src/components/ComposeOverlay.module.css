@@ -1,0 +1,128 @@
+.overlay {
+  position: fixed; inset: 0; z-index: 300;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(8,4,1,0.93); backdrop-filter: blur(18px);
+  animation: fadeUp 0.4s ease both;
+}
+
+/* ── SCROLL ── */
+.scrollContainer {
+  position: relative; width: min(580px, 90vw);
+}
+.scrollRoll {
+  position: relative; left: 0; right: 0; height: 54px; z-index: 2;
+  background: linear-gradient(180deg, #7B4B25, #4A2C17); border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,200,150,0.18);
+  display: flex; align-items: center; justify-content: center;
+}
+.scrollRoll::after {
+  content: ''; position: absolute; inset: 4px;
+  border: 1px solid rgba(201,150,58,0.28); border-radius: 2px;
+}
+.scrollRollBottom { margin-top: 0; }
+.rollLabel {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 2px; color: rgba(228,184,106,0.72); z-index: 1;
+}
+.scrollBody {
+  background: linear-gradient(160deg, #F0E0C0, #E5CFA0, #EDD8B0);
+  border-left: 3px solid #6B3F1F; border-right: 3px solid #6B3F1F;
+  padding: 28px 38px 28px;
+  transform-origin: center top;
+  animation: unrollScroll 1.0s cubic-bezier(.16,1,.3,1) both;
+  animation-delay: 0.2s;
+}
+.scrollTextarea {
+  width: 100%; min-height: 190px; border: none; outline: none;
+  background: transparent; font-family: var(--font-body);
+  font-size: 16px; line-height: 1.95; color: var(--deep-brown); resize: none;
+  background-image: repeating-linear-gradient(transparent,transparent 30px, rgba(107,63,31,0.14) 30px, rgba(107,63,31,0.14) 31px);
+  background-size: 100% 31px; padding-top: 3px;
+}
+
+/* ── ENVELOPE ── */
+.envelopeContainer { position: relative; width: min(520px, 88vw); perspective: 1000px; }
+.envelopeOuter { animation: envelopeReveal 1.2s cubic-bezier(.16,1,.3,1) both; }
+.envelopeFlap {
+  width: 100%; height: 0; border-style: solid;
+  border-width: 108px 260px 0; border-color: #7B4B25 transparent transparent;
+  position: relative; z-index: 3; transform-origin: top center;
+  animation: openFlap 0.75s cubic-bezier(.16,1,.3,1) both; animation-delay: 0.8s;
+}
+.envelopeBody {
+  background: linear-gradient(135deg, #8B5E3C, #6B3F1F); padding: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+.letterPaper {
+  background: linear-gradient(160deg, #F5EDD8, #EDD8B0); padding: 28px;
+  animation: riseFromEnvelope 0.9s cubic-bezier(.16,1,.3,1) both; animation-delay: 1.2s;
+  transform-origin: bottom;
+}
+.envelopeTextarea {
+  width: 100%; min-height: 150px; border: none; outline: none;
+  background: transparent; font-family: var(--font-body);
+  font-size: 15px; line-height: 2; color: var(--deep-brown); resize: none;
+  background-image: repeating-linear-gradient(transparent,transparent 31px, rgba(107,63,31,0.11) 31px, rgba(107,63,31,0.11) 32px);
+  background-size: 100% 32px; padding-top: 3px;
+}
+
+/* ── NOTEPAD ── */
+.notepadContainer { width: min(500px, 88vw); animation: flipIn 0.82s cubic-bezier(.16,1,.3,1) both; }
+.notepadRings { display: flex; gap: 26px; justify-content: center; padding-bottom: 6px; }
+.ring {
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 3px solid #6B3F1F;
+  background: linear-gradient(135deg, #4A2C17, #8B5E3C);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.3);
+}
+.notepadBody {
+  background: linear-gradient(160deg, #F5F0E8, #EDE5D0); padding: 28px;
+  border-radius: 0 0 3px 3px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5); border-top: 6px solid #6B3F1F;
+}
+.notepadTextarea {
+  width: 100%; min-height: 170px; border: none; outline: none;
+  background: transparent; font-family: var(--font-mono);
+  font-size: 13px; line-height: 2; color: var(--deep-brown); resize: none;
+  background-image: repeating-linear-gradient(transparent,transparent 31px, rgba(107,63,31,0.11) 31px, rgba(107,63,31,0.11) 32px);
+  background-size: 100% 32px; padding-top: 3px;
+}
+
+/* ── SHARED ── */
+.composeHeader {
+  font-family: var(--font-display); font-size: 11px;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--sienna); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.toLine {
+  display: flex; align-items: center; gap: 10px;
+  padding: 7px 0; border-bottom: 1px solid rgba(107,63,31,0.22);
+  margin-bottom: 14px;
+}
+.toLabel {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--sienna); width: 34px; flex-shrink: 0;
+  font-family: var(--font-body);
+}
+.toInput {
+  flex: 1; background: none; border: none; outline: none;
+  font-family: var(--font-body); font-size: 15px; color: var(--deep-brown);
+}
+.toInput::placeholder { color: rgba(107,63,31,0.4); }
+
+.actions { display: flex; gap: 10px; margin-top: 14px; justify-content: flex-end; }
+.btnSend {
+  font-family: var(--font-display); font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: var(--ink); border: none; padding: 10px 22px; border-radius: 2px;
+  cursor: pointer; transition: all 0.28s; box-shadow: 0 4px 16px rgba(201,150,58,0.28);
+}
+.btnSend:hover { transform: translateY(-1px); box-shadow: 0 6px 22px rgba(201,150,58,0.4); }
+.btnDiscard {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  background: none; border: 1px solid var(--border); color: var(--muted);
+  padding: 10px 18px; border-radius: 2px; cursor: pointer;
+  font-family: var(--font-body); transition: all 0.28s;
+}
+.btnDiscard:hover { border-color: var(--muted); color: var(--deep-brown); }

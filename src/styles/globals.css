@@ -1,0 +1,103 @@
+/* ── SEALED — Global Styles ── */
+:root {
+  /* Palette — warm beige/parchment vault theme */
+  --bg:           #F2EAD8;
+  --bg-deep:      #E8DCC4;
+  --bg-deeper:    #D9CEAD;
+  --surface:      #EDE2CC;
+  --surface-alt:  #E4D6B8;
+  --border:       #C8B48A;
+  --border-light: #DDD0B0;
+
+  --ink:          #1E1208;
+  --ink-2:        #3B2510;
+  --ink-3:        #5C3A1E;
+  --muted:        #7A5C3A;
+  --muted-light:  #A07B52;
+
+  --gold:         #B8832A;
+  --gold-bright:  #D4A23E;
+  --gold-pale:    #E8C87A;
+  --gold-glow:    rgba(184,131,42,0.18);
+
+  --rust:         #8B3A1E;
+  --sage:         #5C6E4A;
+  --wax:          #8B1E1E;
+
+  /* Vault specific */
+  --vault-body:   #C4A882;
+  --vault-dark:   #8B6B42;
+  --vault-metal:  #D4B896;
+  --vault-shadow: rgba(30,18,8,0.35);
+
+  --radius-sm:  3px;
+  --radius-md:  6px;
+  --radius-lg:  12px;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Cormorant Garamond', Georgia, serif;
+  --font-mono:    'Special Elite', 'Courier New', monospace;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg);
+  font-family: var(--font-body);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: default;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+input, textarea {
+  font-family: var(--font-body);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* Grain texture overlay */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Paper texture vignette */
+.paper-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 50%, transparent 45%, rgba(180,145,90,0.22) 100%);
+}
+
+/* Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
